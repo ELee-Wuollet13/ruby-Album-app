@@ -21,6 +21,10 @@ class Song
     songs
   end
 
+  def album
+    Album.find(self.album_id)
+  end
+
   def ==(song_to_compare)
     (self.name() == song_to_compare.name()) && (self.album_id() == song_to_compare.album_id())
   end
