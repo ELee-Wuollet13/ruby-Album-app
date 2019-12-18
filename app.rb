@@ -37,12 +37,12 @@ end
 
 get('/test') do
   @something = "this is a variable"
-  erb(:whatever)
+redirect to('/albums')
 end
 
 get('/') do
   @albums = Album.all
-  erb(:albums)
+redirect to('/albums')
 end
 
 get('/albums') do
@@ -64,8 +64,7 @@ post('/albums') do
   name = params[:album_name]
   album = Album.new(name, nil)
   album.save()
-  @albums = Album.all() # Adding this line will fix the error.
-  erb(:albums)
+  redirect to('/albums')
 end
 
 get('/albums/:id/edit') do
@@ -76,15 +75,13 @@ end
 patch('/albums/:id') do
   @album = Album.find(params[:id].to_i())
   @album.update(params[:name])
-  @albums = Album.all
-  erb(:albums)
+redirect to('/albums')
 end
 
 delete('/albums/:id') do
   @album = Album.find(params[:id].to_i())
   @album.delete()
-  @albums = Album.all
-  erb(:albums)
+  redirect to('/albums')
 end
 
 get('/custom_route') do

@@ -13,10 +13,6 @@ class Album
     Song.find_by_album(self.id)
   end
 
-  def album
-    Album.find(self.album_id)
-  end
-
   def self.all
     @@albums.values()
   end
