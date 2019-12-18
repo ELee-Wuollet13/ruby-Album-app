@@ -9,6 +9,14 @@ class Album
     @id = id || @@total_rows += 1  # We've added code to handle the id.
   end
 
+  def songs
+    Song.find_by_album(self.id)
+  end
+
+  def album
+    Album.find(self.album_id)
+  end
+
   def self.all
     @@albums.values()
   end
