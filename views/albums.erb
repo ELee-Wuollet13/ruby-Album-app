@@ -19,5 +19,12 @@
     <label for="search">Search</label>
     <input id="search" name="search" class="form-control" type="text">
   </div>
-  <button type="submit" class="btn">Go!</button>
+  <button type="submit" class="btn">Search</button>
+</form>
+
+<form action="/albums/<%= @album.id() %>" method="post">
+  
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete album</button>
 </form>

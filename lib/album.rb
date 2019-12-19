@@ -24,6 +24,7 @@ class Album
   def ==(album_to_compare)
     self.name() == album_to_compare.name()
   end
+
   def self.clear
     @@albums = {}
     @@total_rows = 0
@@ -34,7 +35,7 @@ class Album
   end
 
   def update(name)
-    @name = name
+      @name = name
   end
 
   def delete
